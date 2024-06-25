@@ -1,4 +1,4 @@
-package lt.basepage.framework.test;
+package lt.basepage.calculator.test;
 
 
 import org.junit.jupiter.api.AfterEach;
@@ -11,14 +11,15 @@ public class BaseTest {
     protected static WebDriver driver;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp(){
         driver = new ChromeDriver();
-        driver.get("http://192.168.0.37/");
+        driver.get("https://testpages.eviltester.com/styled/calculator");
         driver.manage().window().maximize();
+
     }
 
     @AfterEach
-    public void tearsDown() {
-            driver.quit();
+    public void tearsDown(){
+        driver.quit();
     }
 }
