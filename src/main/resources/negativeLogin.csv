@@ -1,0 +1,3 @@
+username, lastname, userEmail, userPassword, expectedErrorMessage
+Gudzius_, Joglis, gudzius.joglis51011@uhoo.com, &p+EfH61j), Authentication failed.
+

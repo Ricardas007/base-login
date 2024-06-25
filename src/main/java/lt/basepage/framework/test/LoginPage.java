@@ -25,6 +25,9 @@ public class LoginPage extends BasePage{
     @FindBy (css = ".hidden-sm-down.logout")
     WebElement signOutButton;
 
+    @FindBy (css = ".alert-danger")
+    WebElement alertLoginMessage;
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -59,8 +62,8 @@ public class LoginPage extends BasePage{
         signOutButton.click();
     }
 
-    public void isAlertMessageIsVisible() {
-
+    public String isAlertMessageIsVisible() {
+        return alertLoginMessage.getText();
     }
 }
 

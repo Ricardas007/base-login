@@ -15,7 +15,7 @@ public class ShopRegisterTest extends BaseTest {
     RegisterPage register;
 
     @Test
-    void userRegistrationOnPage() throws InterruptedException {
+    void userRegistrationOnPage() {
 
         String firstName = Utils.generateFistName();
         String lastName = Utils.generateLastName();
@@ -33,10 +33,9 @@ public class ShopRegisterTest extends BaseTest {
         register.pressTermsAndConditionsButton();
         register.pressCustomerDataPrivacyButton();
         register.clickSaveButton();
-//        Thread.sleep(2000);
+
         String expecterResult = firstName + " " + lastName;
         String accountUserName = register.accountOwnerName();
-        Thread.sleep(3000);
 
         Assertions.assertEquals(expecterResult, accountUserName, "User name and account user name should match");
         System.out.printf("Generated Data -> Fist Name: %s, Last Name: %s, Email: %s, Password: %s %n" ,firstName, lastName, email, password);
@@ -64,12 +63,10 @@ public class ShopRegisterTest extends BaseTest {
         register.pressTermsAndConditionsButton();
         register.pressCustomerDataPrivacyButton();
         register.clickSaveButton();
-        String accountUserName = register.accountOwnerName();
         register.getAlertMessageText();
         String alertText = register.getAlertMessageText();
         System.out.println(alertText);
-        Assertions.assertEquals(expecterResult, alertText, "Already registered email should not pass registration");
+        Assertions.assertEquals(expecterResult, alertText, "Name with special(_) chars, exept(.) could not pass registration");
     }
-
 
 }
